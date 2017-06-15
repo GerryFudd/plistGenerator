@@ -1,6 +1,10 @@
 {
-  "name": "plistgenerator",
+  "name": "plist-generator",
   "version": "0.0.0",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/GerryFudd/plistGenerator.git"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
