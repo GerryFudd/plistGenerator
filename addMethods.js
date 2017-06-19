@@ -14,6 +14,7 @@ module.exports = function addMethods(object) {
   result.addFileReferenceToParent = addFileReferenceToParent.bind(result);
   result.addGroupToParent = addGroupToParent.bind(result);
   result.addChildToParent = addChildToParent.bind(result);
+  result.setProvisioningStyle = setProvisioningStyle.bind(result);
 
   // add build phases
   result.addBuildPhase = addBuildPhase.bind(result);
@@ -276,4 +277,13 @@ function addLibraryFile(newUuid, directoryName) {
     'PBXBuildFile',
     { fileRef: newUuid }
   );
+}
+
+function setProvisioningStyle(style) {
+  var projectObject = this.findObject({isa: 'PBXProject'});
+
+  projectObject.attributes.TargetAttributes = projectObject.targets
+    .reduce((acc, target) => {
+      return Object.assign({}, acc, {[target]: {ProvisioningStyle: style}});
+    }, {});
 }
