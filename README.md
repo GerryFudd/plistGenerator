@@ -3,7 +3,7 @@ This is a Node module for reading, modifying, and writing property list files.  
 
 ### Installation
 ```
-npm install --save
+npm install --save plist-generator
 ```
 
 ### API
